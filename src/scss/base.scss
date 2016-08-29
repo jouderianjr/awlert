@@ -1,0 +1,26 @@
+.awlert{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	min-height: 96px;
+	background-color: green;
+	transform: translateY(-100%);
+	color: orange;
+	z-index: 99;
+}
+
+.awlert.enter{
+	transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	transform: translateY(-10%);
+}
+
+.awlert.exit{
+	transform: translateY(-100%);
+	transition: 0.6s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.content{
+	color: white;
+	padding: 10px;
+	padding-top: 10%;
+}
