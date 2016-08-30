@@ -24,14 +24,50 @@ angular.module('starter', ['ionic', 'awlert'])
 })
 
 
-.controller('AppCtrl', function(AwlertProvider){
+.controller('AppCtrl', function(AwlertProvider, $timeout){
   var vm = this;
 
-  vm.openAlert = openAlert;
+  vm.duration = 2000;
+  vm.durationValues = [];
+  vm. message = 'Type your text';
 
-  function openAlert(){
-    console.log('hauishduad');
-    AwlertProvider.show('This tool is awesome', 10000);
+  vm.openCustomAwlert = openCustomAwlert;
+  vm.openNeutral = openNeutral;
+  vm.openSuccess = openSuccess;
+  vm.openError = openError;
+  vm.openCustomAwlert = openCustomAwlert;
+
+  init();
+
+  function init(){
+    for (var i = 0; i <= 15000; i += 500) {
+      vm.durationValues.push(i);
+    }
+  }
+
+  function openCustomAwlert(message, duration){
+    AwlertProvider.neutral(message, duration)
+  }
+
+  function openNeutral(){
+    var awlert = AwlertProvider.neutral('Click me... Click me... Click me... Click me... Click me...', -1);
+    
+    awlert.$on('awlert:click', function(ev, target){
+      target.remove();
+    })
 
   }
+
+  function openSuccess(){
+    console.log('hauishduad');
+    AwlertProvider.success('This is a awesome success alert.', 3000);
+  }
+
+  function openError(){
+    console.log('hauishduad');
+    AwlertProvider.error('Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? '+
+      'Toma um mé que o mundo vai girarzis! in elementis mé pra quem é amistosis quis leo. '+
+      'Quem num gosta di mé, boa gente num é.', 5000);
+  }
+
 })

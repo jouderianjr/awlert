@@ -4,19 +4,45 @@
 	angular.module('awlert')
 	.factory('AwlertProvider', AwlertProvider);
 
-	AwlertProvider.$inject = ['$compile', '$document', '$rootScope'];
+	AwlertProvider.$inject = ['$compile', '$document', '$rootScope', 'AWLERT_TYPES'];
 	
-	function AwlertProvider($compile, $document, $rootScope){
-	
+	function AwlertProvider($compile, $document, $rootScope, AWLERT_TYPES){
+
+		function _neutral(message, duration){
+			return _show(message, duration, AWLERT_TYPES.NEUTRAL);
+		}		
+
+		function _error(message, duration){
+			return _show(message, duration, AWLERT_TYPES.ERROR);
+		}
+
+		function _success(message, duration){
+			return _show(message, duration, AWLERT_TYPES.SUCCESS);			
+		}
+
 		function _show(message, duration, type){
 			var scope = $rootScope.$new(true);
-			scope.message = message;
 
+			angular.extend(scope, {
+				message: message,
+				duration: duration,
+				type: type
+			});
+
+			_appendElement(scope);
+
+			return scope;
+		}
+	
+		function _appendElement(scope){
 			var element = $compile('<aw-lert></aw-lert>')(scope);
 			$document[0].body.appendChild(element[0]);				
 		}
+
 		return {
-			show: _show
+			error: _error,
+			success: _success,
+			neutral: _neutral
 		};
 	}
 

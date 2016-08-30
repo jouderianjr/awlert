@@ -8,6 +8,7 @@ var paths = {
 	scss: ['src/scss/**/*.scss'],
 	js: [
 		'src/js/awlert.module.js',
+		'src/js/awlert.constants.js',
 		'src/js/awlert.directive.js',
 		'src/js/awlert.service.js',
 
@@ -17,13 +18,12 @@ var paths = {
 gulp.task('js', function(){
 	return  gulp.src(paths.js)
 					.pipe(concat('awlert.min.js'))
-					.pipe(uglify())
 					.pipe(gulp.dest(('demo/www/lib/awlert/js')));
 })
 
 gulp.task('sass', function(){
 	return  gulp.src(paths.scss)
-					.pipe(sass())
+					.pipe(sass().on('error', sass.logError))
 					.pipe(concat('awlert.css'))
 					.pipe(cssnano({zindex: false}))
 					.pipe(gulp.dest('demo/www/lib/awlert/css'));

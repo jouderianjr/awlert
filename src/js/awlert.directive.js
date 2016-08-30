@@ -7,6 +7,53 @@
 	AwesomeAlert.$inject = ['$timeout'];
 
 	function AwesomeAlert($timeout){
+		var transformDuration = 600;
+		var scope;
+		var element;
+
+		function _link(scope, element){
+			scope.$parent.remove = _remove;			
+			
+			init();
+
+			function init(){
+				element.addClass(scope.type);
+
+				element.bind('click', _clickHandler);
+
+				$timeout(function(){
+					element.addClass('enter');
+
+					if(scope.duration == -1) 
+						return;
+					else
+						_remove();
+
+				}, 30);				
+			}
+
+			function _clickHandler(){
+				scope.$emit('awlert:click', scope);
+			}
+
+			function _remove(){
+				$timeout(function(){
+
+					element.removeClass('enter');									
+					
+					$timeout(function(){
+
+						element.remove();
+						scope.$destroy();
+
+					}, transformDuration);							
+
+				}, scope.duration || 3000);			
+			}
+
+		}
+
+
 		return {
 			template: '<div class="awlert">'+
 									'<div class="content">'+
@@ -16,20 +63,7 @@
 			replace: 'true',
 			restrict: 'E',
 			scope: true, 
-			link: function(scope, el){
-				$timeout(function(){
-					el.addClass('enter');
-
-					$timeout(function(){
-						scope.$apply(function(){
-								el.addClass('exit');
-								el.removeClass('enter');
-						});
-					}, scope.duration || 3000);
-
-
-				}, 30, true);
-			}
+			link: _link
 		}
 	}
 
