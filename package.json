@@ -3,7 +3,7 @@
   "author": "Jouderian Nobre <jouderianjr@gmail.com>",
   "version": "1.0.0",
   "description": "Awesome Alert for Ionic 1.X",
-  "main": "index.js",
+  "main": "dist/js/awlert.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
