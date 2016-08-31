@@ -24,7 +24,7 @@ angular.module('starter', ['ionic', 'awlert'])
 })
 
 
-.controller('AppCtrl', function(AwlertProvider, $timeout){
+.controller('AppCtrl', function(awlert, $timeout){
   var vm = this;
 
   vm.duration = 2000;
@@ -46,11 +46,11 @@ angular.module('starter', ['ionic', 'awlert'])
   }
 
   function openCustomAwlert(message, duration){
-    AwlertProvider.neutral(message, duration)
+    awlert.neutral(message, duration)
   }
 
   function openNeutral(){
-    var awlert = AwlertProvider.neutral('Click me... Click me... Click me... Click me... Click me...', -1);
+    var awlert = awlert.neutral('Click me... Click me... Click me... Click me... Click me...', -1);
     
     awlert.$on('awlert:click', function(ev, target){
       target.remove();
@@ -60,12 +60,12 @@ angular.module('starter', ['ionic', 'awlert'])
 
   function openSuccess(){
     console.log('hauishduad');
-    AwlertProvider.success('This is a awesome success alert.', 3000);
+    awlert.success('This is a awesome success alert.', 3000);
   }
 
   function openError(){
     console.log('hauishduad');
-    AwlertProvider.error('Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? '+
+    awlert.error('Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? '+
       'Toma um mé que o mundo vai girarzis! in elementis mé pra quem é amistosis quis leo. '+
       'Quem num gosta di mé, boa gente num é.', 5000);
   }

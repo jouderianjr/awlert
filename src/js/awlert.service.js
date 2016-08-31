@@ -2,11 +2,11 @@
 	'use strict';
 
 	angular.module('awlert')
-	.factory('AwlertProvider', AwlertProvider);
+	.factory('awlert', awlert);
 
-	AwlertProvider.$inject = ['$compile', '$document', '$rootScope', 'AWLERT_TYPES'];
+	awlert.$inject = ['$compile', '$document', '$rootScope', 'AWLERT_TYPES'];
 	
-	function AwlertProvider($compile, $document, $rootScope, AWLERT_TYPES){
+	function awlert($compile, $document, $rootScope, AWLERT_TYPES){
 
 		function _neutral(message, duration){
 			return _show(message, duration, AWLERT_TYPES.NEUTRAL);

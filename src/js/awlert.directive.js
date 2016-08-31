@@ -8,8 +8,6 @@
 
 	function AwesomeAlert($timeout){
 		var transformDuration = 600;
-		var scope;
-		var element;
 
 		function _link(scope, element){
 			scope.$parent.remove = _remove;			
@@ -53,9 +51,9 @@
 
 		}
 
-
 		return {
 			template: '<div class="awlert">'+
+									'<div class="space"></div>'+
 									'<div class="content">'+
 									'{{message}}'+
 									'</div>'+
@@ -64,7 +62,7 @@
 			restrict: 'E',
 			scope: true, 
 			link: _link
-		}
+		};
 	}
 
 })();
