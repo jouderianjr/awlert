@@ -20,6 +20,8 @@
     "tests",
     "README.md",
     "LICENSE",
-    "package.json"
+    "package.json",
+    "resources"
+
   ]
 }

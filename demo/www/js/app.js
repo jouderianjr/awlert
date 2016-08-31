@@ -50,10 +50,10 @@ angular.module('starter', ['ionic', 'awlert'])
   }
 
   function openNeutral(){
-    var awlert = awlert.neutral('Click me... Click me... Click me... Click me... Click me...', -1);
+    var awlertNeutral = awlert.neutral('Click me... Click me... Click me... Click me... Click me...', -1);
     
-    awlert.$on('awlert:click', function(ev, target){
-      target.remove();
+    awlertNeutral.$on('awlert:click', function(ev, target){
+      awlertNeutral.remove();
     })
 
   }
