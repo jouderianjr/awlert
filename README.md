@@ -96,7 +96,7 @@ You can handle with click event, you can see in this [example](#click-example).
 
 ### Help this project
 
-If you have some problem or want to suggest more features, please, create an issue for report. You would like to help us? fork then pull refresh!!!
+If you have some problem or want to suggest more features, please, create an issue for report. You would like to help us? fork it and send an pull request!!!
 
 If you want contact me: 
 
