@@ -10,8 +10,8 @@
 		var transformDuration = 600;
 
 		function _link(scope, element){
-			scope.$parent.remove = _remove;			
-			
+			scope.remove = _remove;			
+
 			init();
 
 			function init(){
@@ -60,9 +60,8 @@
 								'</div>',
 			replace: 'true',
 			restrict: 'E',
-			scope: true, 
 			link: _link
 		};
-	}
+	};
 
 })();

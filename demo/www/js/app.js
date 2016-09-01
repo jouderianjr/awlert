@@ -54,17 +54,15 @@ angular.module('starter', ['ionic', 'awlert'])
     
     awlertNeutral.$on('awlert:click', function(ev, target){
       awlertNeutral.remove();
-    })
+    });
 
   }
 
   function openSuccess(){
-    console.log('hauishduad');
     awlert.success('This is a awesome success alert.', 3000);
   }
 
   function openError(){
-    console.log('hauishduad');
     awlert.error('Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? '+
       'Toma um mé que o mundo vai girarzis! in elementis mé pra quem é amistosis quis leo. '+
       'Quem num gosta di mé, boa gente num é.', 5000);
