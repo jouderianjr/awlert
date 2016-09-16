@@ -35,7 +35,7 @@
 
 ```
     <link rel="stylesheet" href="lib/awlert/dist/css/awlert.css">
-    <script src="lib/awlert/dist/awlert.min.js"></script>
+    <script src="lib/awlert/dist/js/awlert.min.js"></script>
 ```
 
 ### Inject awlert module
