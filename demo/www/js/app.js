@@ -32,10 +32,11 @@ angular.module('starter', ['ionic', 'awlert'])
   vm. message = 'Type your text';
 
   vm.openCustomAwlert = openCustomAwlert;
-  vm.openNeutral = openNeutral;
-  vm.openSuccess = openSuccess;
-  vm.openError = openError;
+  vm.openNeutral      = openNeutral;
+  vm.openSuccess      = openSuccess;
+  vm.openError        = openError;
   vm.openCustomAwlert = openCustomAwlert;
+  vm.openBreakline    = openBreakline;
 
   init();
 
@@ -66,6 +67,13 @@ angular.module('starter', ['ionic', 'awlert'])
     awlert.error('Mussum Ipsum, cacilds vidis litro abertis. Si u mundo tá muito paradis? '+
       'Toma um mé que o mundo vai girarzis! in elementis mé pra quem é amistosis quis leo. '+
       'Quem num gosta di mé, boa gente num é.', 5000);
+  }
+
+  function openBreakline(){
+    awlert.neutral(
+      "I'm the first line <br/><br/><br/><br/>" +
+      "and I'm the second one"
+    )
   }
 
 })

@@ -12,6 +12,7 @@
 - [Setup](#setup)
 - [Usage](#usage)
 - [Example](#example)
+- [Changelog](#changelog)
 
 ---
 
@@ -54,7 +55,7 @@ You will use that service for create alerts in your controller.
 
 `awlert` has 3 methods with the same params (message, duration).
 
->Ps. If you use duration = 1, the awlert will not leave.
+>Ps. If you use duration = -1, the awlert will not leave.
 
 |  Method  | Color      |
 |:---------|------------|
@@ -91,6 +92,12 @@ You can handle with click event, you can see in this [example](#click-example).
          // neutralAwlert.remove();
     });
 ```
+
+## Changelog
+
+v1.0.1
+
+- Add support to message with <br/> for breakline
 
 ---
 

@@ -54,8 +54,7 @@
 		return {
 			template: '<div class="awlert">'+
 									'<div class="space"></div>'+
-									'<div class="content">'+
-									'{{message}}'+
+									'<div class="content" ng-bind-html="message">'+
 									'</div>'+
 								'</div>',
 			replace: 'true',
